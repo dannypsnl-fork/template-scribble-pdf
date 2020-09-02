@@ -4,7 +4,7 @@ A template for creating pdf from scribble/manual, it supports unicode by default
 
 ### How to use
 
-You can **create repo from this template**, then use the following command to produce pdf file, all you need to do was editing `doc.scrbl`.
+You can [**create repo from this template**](https://github.com/dannypsnl/template-scribble-pdf/generate), then use the following command to produce pdf file, all you need to do was editing `doc.scrbl`.
 
 ```sh
 make pdf
