@@ -1,10 +1,10 @@
-doc.tex: doc.scrbl style.tex
-	@scribble ++style style.tex --latex doc.scrbl
+SCRBL := scribble ++main-xref-in --redirect-main http://docs.racket-lang.org/
 
-doc.pdf: doc.tex
-	@xelatex doc.tex
+OBJS = $(patsubst %.scrbl, %.pdf, $(shell ls *.scrbl))
+%.pdf: %.scrbl
+	@$(SCRBL) ++style style.tex --latex $<
+	@xelatex $(patsubst %.pdf, %.tex, $@)
 
-.PHONY: pdf html
-html: doc.scrbl
-	@scribble doc.scrbl
-pdf: doc.pdf
+.PHONY: build
+build: $(OBJS)
+
